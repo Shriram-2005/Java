@@ -1,7 +1,5 @@
 # Time vs. Space Complexity: The Ultimate Trade-off
 
-still there are 5 topics in basics of dsa...
-
 You have officially entered the mindset of an enterprise software architect.
 
 Junior developers only look at Time Complexity (Speed). They want their code to run fast, so they create ten different arrays to hold all their temporary data. Then they deploy it, the server runs out of RAM, and the application crashes with an `OutOfMemoryError`.
