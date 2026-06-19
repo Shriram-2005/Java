@@ -1,0 +1,345 @@
+
+<style>
+:root { --phase-gap: 1.5rem; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); }
+
+.roadmap { padding: 1rem 0 2rem; }
+
+.phase { margin-bottom: var(--phase-gap); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; }
+
+.phase-header { display: flex; align-items: center; gap: 12px; padding: 0.85rem 1.25rem; cursor: pointer; user-select: none; background: var(--color-background-secondary); }
+.phase-header:hover { background: var(--color-background-tertiary); }
+
+.phase-badge { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+.p1 .phase-badge { background: #E6F1FB; color: #0C447C; }
+.p2 .phase-badge { background: #E1F5EE; color: #085041; }
+.p3 .phase-badge { background: #FAEEDA; color: #633806; }
+.p4 .phase-badge { background: #EEEDFE; color: #3C3489; }
+.p5 .phase-badge { background: #FAECE7; color: #712B13; }
+.p6 .phase-badge { background: #FBEAF0; color: #72243E; }
+
+.phase-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); flex: 1; }
+.phase-sub { font-size: 12px; color: var(--color-text-secondary); }
+.chevron { font-size: 16px; color: var(--color-text-secondary); transition: transform 0.2s; }
+.open .chevron { transform: rotate(180deg); }
+
+.phase-body { padding: 1rem 1.25rem; display: none; border-top: 0.5px solid var(--color-border-tertiary); }
+.phase-body.visible { display: block; }
+
+.section-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-secondary); margin: 1rem 0 0.5rem; }
+.section-label:first-child { margin-top: 0; }
+
+.topics { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 6px; }
+
+.topic { display: flex; align-items: flex-start; gap: 8px; padding: 7px 10px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-tertiary); background: var(--color-background-primary); font-size: 13px; color: var(--color-text-primary); }
+.topic .dot { width: 7px; height: 7px; border-radius: 50%; margin-top: 4px; flex-shrink: 0; }
+.p1 .dot { background: #378ADD; }
+.p2 .dot { background: #1D9E75; }
+.p3 .dot { background: #BA7517; }
+.p4 .dot { background: #7F77DD; }
+.p5 .dot { background: #D85A30; }
+.p6 .dot { background: #D4537E; }
+
+.new-tag { font-size: 10px; font-weight: 500; padding: 1px 6px; border-radius: 10px; background: #FAECE7; color: #993C1D; margin-left: auto; flex-shrink: 0; }
+
+.milestone { margin-top: 1rem; padding: 10px 14px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-tertiary); background: var(--color-background-secondary); display: flex; align-items: flex-start; gap: 10px; }
+.milestone i { font-size: 16px; color: var(--color-text-secondary); margin-top: 1px; }
+.milestone-text { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+.milestone-text strong { color: var(--color-text-primary); font-weight: 500; }
+
+.progress-bar { display: flex; gap: 4px; margin-bottom: 1.25rem; }
+.prog-seg { height: 4px; border-radius: 4px; flex: 1; }
+.s1 { background: #378ADD; }
+.s2 { background: #1D9E75; }
+.s3 { background: #BA7517; }
+.s4 { background: #7F77DD; }
+.s5 { background: #D85A30; }
+.s6 { background: #D4537E; }
+</style>
+
+<h2 class="sr-only">Complete Java Mastery Roadmap covering all phases from syntax basics to enterprise architecture</h2>
+
+<div class="roadmap">
+  <div class="progress-bar">
+    <div class="prog-seg s1"></div>
+    <div class="prog-seg s2"></div>
+    <div class="prog-seg s3"></div>
+    <div class="prog-seg s4"></div>
+    <div class="prog-seg s5"></div>
+    <div class="prog-seg s6"></div>
+  </div>
+
+  <!-- Phase 1 -->
+  <div class="phase p1">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-badge">Phase 1</span>
+      <span class="phase-title">Syntax & Survival</span>
+      <span class="phase-sub">The basics</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body visible">
+      <div class="section-label">Setup</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>JDK installation</div>
+        <div class="topic"><span class="dot"></span>IntelliJ IDEA setup</div>
+        <div class="topic"><span class="dot"></span>First Hello World</div>
+      </div>
+      <div class="section-label">Core language</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Variables & data types</div>
+        <div class="topic"><span class="dot"></span>Primitives vs reference types</div>
+        <div class="topic"><span class="dot"></span>Type casting</div>
+        <div class="topic"><span class="dot"></span>Operators & expressions</div>
+        <div class="topic"><span class="dot"></span>if / else / switch</div>
+        <div class="topic"><span class="dot"></span>Switch expressions (modern)<span class="new-tag">Java 14+</span></div>
+        <div class="topic"><span class="dot"></span>for / while / do-while</div>
+        <div class="topic"><span class="dot"></span>Enhanced for-each loop</div>
+        <div class="topic"><span class="dot"></span>Methods & return types</div>
+        <div class="topic"><span class="dot"></span>Varargs<span class="new-tag">gap</span></div>
+        <div class="topic"><span class="dot"></span>Arrays (1D & 2D)</div>
+      </div>
+      <div class="section-label">Strings & memory</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>String immutability</div>
+        <div class="topic"><span class="dot"></span>String Pool (interview trap)</div>
+        <div class="topic"><span class="dot"></span>StringBuilder & StringBuffer</div>
+        <div class="topic"><span class="dot"></span>Common String methods</div>
+      </div>
+      <div class="milestone">
+        <i class="ti ti-flag" aria-hidden="true"></i>
+        <div class="milestone-text"><strong>Milestone:</strong> CLI Calculator or Number Guessing Game</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 2 -->
+  <div class="phase p2">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-badge">Phase 2</span>
+      <span class="phase-title">Object-Oriented Architecture</span>
+      <span class="phase-sub">Intermediate</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="section-label">OOP pillars</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Classes & objects</div>
+        <div class="topic"><span class="dot"></span>Constructors</div>
+        <div class="topic"><span class="dot"></span>this keyword</div>
+        <div class="topic"><span class="dot"></span>Encapsulation (getters/setters)</div>
+        <div class="topic"><span class="dot"></span>Inheritance & extends</div>
+        <div class="topic"><span class="dot"></span>Method overriding</div>
+        <div class="topic"><span class="dot"></span>Method overloading</div>
+        <div class="topic"><span class="dot"></span>Polymorphism</div>
+        <div class="topic"><span class="dot"></span>Interfaces</div>
+        <div class="topic"><span class="dot"></span>Abstract classes</div>
+        <div class="topic"><span class="dot"></span>super keyword</div>
+        <div class="topic"><span class="dot"></span>static keyword</div>
+        <div class="topic"><span class="dot"></span>final keyword</div>
+      </div>
+      <div class="section-label">Additional OOP concepts</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Enums<span class="new-tag">gap</span></div>
+        <div class="topic"><span class="dot"></span>Nested & inner classes<span class="new-tag">gap</span></div>
+        <div class="topic"><span class="dot"></span>Anonymous classes<span class="new-tag">gap</span></div>
+        <div class="topic"><span class="dot"></span>Object class methods (equals, hashCode, toString)</div>
+      </div>
+      <div class="section-label">Exception handling</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>try / catch / finally</div>
+        <div class="topic"><span class="dot"></span>try-with-resources<span class="new-tag">gap</span></div>
+        <div class="topic"><span class="dot"></span>Checked vs unchecked exceptions</div>
+        <div class="topic"><span class="dot"></span>Custom exceptions</div>
+        <div class="topic"><span class="dot"></span>throws & throw</div>
+      </div>
+      <div class="milestone">
+        <i class="ti ti-flag" aria-hidden="true"></i>
+        <div class="milestone-text"><strong>Milestone:</strong> CLI Library Management System with interfaces, custom exceptions</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 3 -->
+  <div class="phase p3">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-badge">Phase 3</span>
+      <span class="phase-title">Engine Room — DSA & Collections</span>
+      <span class="phase-sub">Advanced core Java</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="section-label">Collections framework</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>ArrayList</div>
+        <div class="topic"><span class="dot"></span>LinkedList</div>
+        <div class="topic"><span class="dot"></span>Stack</div>
+        <div class="topic"><span class="dot"></span>Queue & Deque</div>
+        <div class="topic"><span class="dot"></span>PriorityQueue</div>
+        <div class="topic"><span class="dot"></span>HashSet</div>
+        <div class="topic"><span class="dot"></span>TreeSet & LinkedHashSet</div>
+        <div class="topic"><span class="dot"></span>HashMap (internal working)</div>
+        <div class="topic"><span class="dot"></span>TreeMap & LinkedHashMap</div>
+        <div class="topic"><span class="dot"></span>Collections utility class</div>
+      </div>
+      <div class="section-label">Generics & sorting</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Generics & type safety</div>
+        <div class="topic"><span class="dot"></span>Comparable interface</div>
+        <div class="topic"><span class="dot"></span>Comparator interface</div>
+        <div class="topic"><span class="dot"></span>Sorting custom objects</div>
+      </div>
+      <div class="section-label">DSA problem patterns</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>HashMap for frequency count<span class="new-tag">gap</span></div>
+        <div class="topic"><span class="dot"></span>Stack for bracket matching<span class="new-tag">gap</span></div>
+        <div class="topic"><span class="dot"></span>Queue for BFS<span class="new-tag">gap</span></div>
+        <div class="topic"><span class="dot"></span>Two pointers pattern<span class="new-tag">gap</span></div>
+        <div class="topic"><span class="dot"></span>Sliding window pattern<span class="new-tag">gap</span></div>
+      </div>
+      <div class="section-label">File I/O</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>File reading & writing</div>
+        <div class="topic"><span class="dot"></span>BufferedReader & Writer</div>
+        <div class="topic"><span class="dot"></span>CSV file handling</div>
+        <div class="topic"><span class="dot"></span>Serialization basics</div>
+      </div>
+      <div class="milestone">
+        <i class="ti ti-flag" aria-hidden="true"></i>
+        <div class="milestone-text"><strong>Milestone:</strong> In-Memory Key-Value Database with TTL + file persistence</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 4 -->
+  <div class="phase p4">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-badge">Phase 4</span>
+      <span class="phase-title">Modern Java & Concurrency</span>
+      <span class="phase-sub">The differentiator</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="section-label">Functional programming (Java 8+)</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Lambdas</div>
+        <div class="topic"><span class="dot"></span>Functional interfaces</div>
+        <div class="topic"><span class="dot"></span>Method references</div>
+        <div class="topic"><span class="dot"></span>Streams API (filter, map, reduce)</div>
+        <div class="topic"><span class="dot"></span>collect & collectors</div>
+        <div class="topic"><span class="dot"></span>Optional</div>
+      </div>
+      <div class="section-label">Modern Java features</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Records<span class="new-tag">Java 16+</span></div>
+        <div class="topic"><span class="dot"></span>Sealed classes<span class="new-tag">Java 17+</span></div>
+        <div class="topic"><span class="dot"></span>Pattern matching (instanceof)<span class="new-tag">Java 16+</span></div>
+        <div class="topic"><span class="dot"></span>Text blocks<span class="new-tag">Java 15+</span></div>
+        <div class="topic"><span class="dot"></span>var keyword<span class="new-tag">Java 10+</span></div>
+      </div>
+      <div class="section-label">Multithreading & concurrency</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Thread class & Runnable</div>
+        <div class="topic"><span class="dot"></span>Thread lifecycle</div>
+        <div class="topic"><span class="dot"></span>Race conditions</div>
+        <div class="topic"><span class="dot"></span>synchronized keyword</div>
+        <div class="topic"><span class="dot"></span>volatile keyword</div>
+        <div class="topic"><span class="dot"></span>ExecutorService & thread pools</div>
+        <div class="topic"><span class="dot"></span>Future & Callable</div>
+        <div class="topic"><span class="dot"></span>CompletableFuture</div>
+      </div>
+      <div class="milestone">
+        <i class="ti ti-flag" aria-hidden="true"></i>
+        <div class="milestone-text"><strong>Milestone:</strong> Multithreaded Log Analyzer using Streams + thread pools</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 5 -->
+  <div class="phase p5">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-badge">Phase 5</span>
+      <span class="phase-title">Enterprise Architecture</span>
+      <span class="phase-sub">Production-ready</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="section-label">Build & test</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Maven (pom.xml, dependencies)</div>
+        <div class="topic"><span class="dot"></span>Gradle basics</div>
+        <div class="topic"><span class="dot"></span>JUnit 5</div>
+        <div class="topic"><span class="dot"></span>Mockito (mocking)</div>
+        <div class="topic"><span class="dot"></span>TDD basics</div>
+      </div>
+      <div class="section-label">Database</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>JDBC</div>
+        <div class="topic"><span class="dot"></span>JPA basics</div>
+        <div class="topic"><span class="dot"></span>Hibernate ORM</div>
+        <div class="topic"><span class="dot"></span>Transactions</div>
+      </div>
+      <div class="section-label">Spring Boot (big topic — plan 2-3 months)</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Dependency Injection & IoC</div>
+        <div class="topic"><span class="dot"></span>Spring Core (@Bean, @Component)</div>
+        <div class="topic"><span class="dot"></span>Spring MVC (REST controllers)</div>
+        <div class="topic"><span class="dot"></span>Spring Data JPA</div>
+        <div class="topic"><span class="dot"></span>Spring Security basics</div>
+        <div class="topic"><span class="dot"></span>application.properties / YAML config</div>
+        <div class="topic"><span class="dot"></span>Exception handling in REST</div>
+        <div class="topic"><span class="dot"></span>DTO pattern</div>
+      </div>
+      <div class="milestone">
+        <i class="ti ti-flag" aria-hidden="true"></i>
+        <div class="milestone-text"><strong>Milestone:</strong> Full REST API (e-commerce or to-do) with PostgreSQL + unit tests</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 6 -->
+  <div class="phase p6">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-badge">Bonus</span>
+      <span class="phase-title">Interview Prep & LeetCode Patterns</span>
+      <span class="phase-sub">Parallel to phases 3-5</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="section-label">Patterns to master</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Arrays & hashing</div>
+        <div class="topic"><span class="dot"></span>Two pointers</div>
+        <div class="topic"><span class="dot"></span>Sliding window</div>
+        <div class="topic"><span class="dot"></span>Binary search</div>
+        <div class="topic"><span class="dot"></span>Stack-based problems</div>
+        <div class="topic"><span class="dot"></span>BFS / DFS</div>
+        <div class="topic"><span class="dot"></span>Recursion & backtracking</div>
+        <div class="topic"><span class="dot"></span>Dynamic programming (basics)</div>
+      </div>
+      <div class="section-label">Java-specific interview topics</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>String Pool deep dive</div>
+        <div class="topic"><span class="dot"></span>== vs .equals() vs hashCode()</div>
+        <div class="topic"><span class="dot"></span>How HashMap works internally</div>
+        <div class="topic"><span class="dot"></span>Checked vs unchecked exceptions</div>
+        <div class="topic"><span class="dot"></span>JVM memory model basics</div>
+        <div class="topic"><span class="dot"></span>Garbage collection basics</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggle(header) {
+  const phase = header.parentElement;
+  const body = phase.querySelector('.phase-body');
+  const isOpen = body.classList.contains('visible');
+  body.classList.toggle('visible', !isOpen);
+  header.classList.toggle('open', !isOpen);
+}
+document.querySelectorAll('.phase-header').forEach(h => {
+  const body = h.parentElement.querySelector('.phase-body');
+  if (body.classList.contains('visible')) h.classList.add('open');
+});
+</script>

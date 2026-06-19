@@ -1,0 +1,326 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.roadmap { padding: 1rem 0 2rem; }
+
+.phase { margin-bottom: 1.5rem; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; }
+
+.phase-header { display: flex; align-items: center; gap: 12px; padding: 0.85rem 1.25rem; cursor: pointer; user-select: none; background: var(--color-background-secondary); }
+.phase-header:hover { background: var(--color-background-tertiary); }
+
+.phase-badge { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+.p1 .phase-badge { background: #E6F1FB; color: #0C447C; }
+.p2 .phase-badge { background: #E1F5EE; color: #085041; }
+.p3 .phase-badge { background: #FAEEDA; color: #633806; }
+.p4 .phase-badge { background: #EEEDFE; color: #3C3489; }
+.p5 .phase-badge { background: #FAECE7; color: #712B13; }
+.p6 .phase-badge { background: #FBEAF0; color: #72243E; }
+.p7 .phase-badge { background: #F1EFE8; color: #444441; }
+
+.phase-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); flex: 1; }
+.phase-sub { font-size: 12px; color: var(--color-text-secondary); }
+.chevron { font-size: 16px; color: var(--color-text-secondary); transition: transform 0.2s; }
+.open .chevron { transform: rotate(180deg); }
+
+.phase-body { padding: 1rem 1.25rem; display: none; border-top: 0.5px solid var(--color-border-tertiary); }
+.phase-body.visible { display: block; }
+
+.section-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-secondary); margin: 1rem 0 0.5rem; }
+.section-label:first-child { margin-top: 0; }
+
+.topics { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 6px; }
+
+.topic { display: flex; align-items: flex-start; gap: 8px; padding: 7px 10px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-tertiary); background: var(--color-background-primary); font-size: 13px; color: var(--color-text-primary); }
+.topic .dot { width: 7px; height: 7px; border-radius: 50%; margin-top: 4px; flex-shrink: 0; }
+.p1 .dot { background: #378ADD; }
+.p2 .dot { background: #1D9E75; }
+.p3 .dot { background: #BA7517; }
+.p4 .dot { background: #7F77DD; }
+.p5 .dot { background: #D85A30; }
+.p6 .dot { background: #D4537E; }
+.p7 .dot { background: #5F5E5A; }
+
+.bigo { font-size: 10px; font-weight: 500; padding: 1px 6px; border-radius: 10px; margin-left: auto; flex-shrink: 0; background: var(--color-background-secondary); color: var(--color-text-secondary); font-family: var(--font-mono); }
+
+.milestone { margin-top: 1rem; padding: 10px 14px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-tertiary); background: var(--color-background-secondary); display: flex; align-items: flex-start; gap: 10px; }
+.milestone i { font-size: 16px; color: var(--color-text-secondary); margin-top: 1px; }
+.milestone-text { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+.milestone-text strong { color: var(--color-text-primary); font-weight: 500; }
+
+.progress-bar { display: flex; gap: 4px; margin-bottom: 1.25rem; }
+.prog-seg { height: 4px; border-radius: 4px; flex: 1; }
+.s1 { background: #378ADD; }
+.s2 { background: #1D9E75; }
+.s3 { background: #BA7517; }
+.s4 { background: #7F77DD; }
+.s5 { background: #D85A30; }
+.s6 { background: #D4537E; }
+.s7 { background: #5F5E5A; }
+</style>
+
+<h2 class="sr-only">Complete Data Structures and Algorithms mastery roadmap covering sorting, searching, graphs, trees, and dynamic programming</h2>
+
+<div class="roadmap">
+  <div class="progress-bar">
+    <div class="prog-seg s1"></div>
+    <div class="prog-seg s2"></div>
+    <div class="prog-seg s3"></div>
+    <div class="prog-seg s4"></div>
+    <div class="prog-seg s5"></div>
+    <div class="prog-seg s6"></div>
+    <div class="prog-seg s7"></div>
+  </div>
+
+  <!-- Phase 1 -->
+  <div class="phase p1">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-badge">Stage 1</span>
+      <span class="phase-title">Complexity & foundations</span>
+      <span class="phase-sub">Before any algorithm</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body visible">
+      <div class="section-label">Core concepts</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Big-O notation</div>
+        <div class="topic"><span class="dot"></span>Time vs space complexity</div>
+        <div class="topic"><span class="dot"></span>Best / average / worst case</div>
+        <div class="topic"><span class="dot"></span>Amortized complexity</div>
+        <div class="topic"><span class="dot"></span>Recursion & call stack</div>
+        <div class="topic"><span class="dot"></span>Recurrence relations</div>
+      </div>
+      <div class="milestone">
+        <i class="ti ti-flag" aria-hidden="true"></i>
+        <div class="milestone-text"><strong>Goal:</strong> Look at any piece of code and state its Big-O without help</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 2: Sorting -->
+  <div class="phase p2">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-badge">Stage 2</span>
+      <span class="phase-title">Sorting algorithms</span>
+      <span class="phase-sub">Comparison & non-comparison</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="section-label">Simple sorts (understand, rarely used)</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Bubble sort<span class="bigo">O(n²)</span></div>
+        <div class="topic"><span class="dot"></span>Selection sort<span class="bigo">O(n²)</span></div>
+        <div class="topic"><span class="dot"></span>Insertion sort<span class="bigo">O(n²)</span></div>
+      </div>
+      <div class="section-label">Efficient sorts (must master)</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Merge sort<span class="bigo">O(n log n)</span></div>
+        <div class="topic"><span class="dot"></span>Quick sort<span class="bigo">O(n log n)</span></div>
+        <div class="topic"><span class="dot"></span>Heap sort<span class="bigo">O(n log n)</span></div>
+      </div>
+      <div class="section-label">Special-case sorts</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Counting sort<span class="bigo">O(n+k)</span></div>
+        <div class="topic"><span class="dot"></span>Radix sort<span class="bigo">O(nk)</span></div>
+        <div class="topic"><span class="dot"></span>Bucket sort</div>
+      </div>
+      <div class="section-label">Concepts</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Stable vs unstable sorting</div>
+        <div class="topic"><span class="dot"></span>In-place vs out-of-place</div>
+        <div class="topic"><span class="dot"></span>When to use which sort</div>
+      </div>
+      <div class="milestone">
+        <i class="ti ti-flag" aria-hidden="true"></i>
+        <div class="milestone-text"><strong>Milestone:</strong> Implement merge sort and quick sort from scratch without looking it up</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 3: Searching -->
+  <div class="phase p3">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-badge">Stage 3</span>
+      <span class="phase-title">Searching algorithms</span>
+      <span class="phase-sub">Linear, binary & variants</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="section-label">Core searches</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Linear search<span class="bigo">O(n)</span></div>
+        <div class="topic"><span class="dot"></span>Binary search<span class="bigo">O(log n)</span></div>
+        <div class="topic"><span class="dot"></span>Binary search on answer</div>
+        <div class="topic"><span class="dot"></span>Ternary search</div>
+      </div>
+      <div class="section-label">Patterns built on searching</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Two pointers</div>
+        <div class="topic"><span class="dot"></span>Sliding window</div>
+        <div class="topic"><span class="dot"></span>Fast & slow pointers</div>
+        <div class="topic"><span class="dot"></span>Prefix sums</div>
+      </div>
+      <div class="milestone">
+        <i class="ti ti-flag" aria-hidden="true"></i>
+        <div class="milestone-text"><strong>Milestone:</strong> Solve 10 binary search variant problems (rotated array, first/last occurrence, etc.)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 4: Linear DS -->
+  <div class="phase p4">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-badge">Stage 4</span>
+      <span class="phase-title">Core data structures</span>
+      <span class="phase-sub">Linear & hash-based</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="section-label">Linear structures</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Arrays</div>
+        <div class="topic"><span class="dot"></span>Linked lists (singly, doubly)</div>
+        <div class="topic"><span class="dot"></span>Stack</div>
+        <div class="topic"><span class="dot"></span>Queue & deque</div>
+        <div class="topic"><span class="dot"></span>Circular buffer</div>
+      </div>
+      <div class="section-label">Hash-based</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Hash maps & hash sets</div>
+        <div class="topic"><span class="dot"></span>Collision handling</div>
+        <div class="topic"><span class="dot"></span>Load factor & rehashing</div>
+      </div>
+      <div class="section-label">Specialized</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Priority queue / heap</div>
+        <div class="topic"><span class="dot"></span>Min-heap vs max-heap</div>
+      </div>
+      <div class="milestone">
+        <i class="ti ti-flag" aria-hidden="true"></i>
+        <div class="milestone-text"><strong>Milestone:</strong> Implement a linked list and a min-heap from scratch (no library)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 5: Trees -->
+  <div class="phase p5">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-badge">Stage 5</span>
+      <span class="phase-title">Trees</span>
+      <span class="phase-sub">Hierarchical structures</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="section-label">Tree basics</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Binary trees</div>
+        <div class="topic"><span class="dot"></span>Tree traversals (in/pre/post-order)</div>
+        <div class="topic"><span class="dot"></span>Level-order traversal (BFS)</div>
+        <div class="topic"><span class="dot"></span>Binary search trees (BST)</div>
+      </div>
+      <div class="section-label">Balanced & specialized trees</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>AVL trees</div>
+        <div class="topic"><span class="dot"></span>Red-black trees</div>
+        <div class="topic"><span class="dot"></span>Trie (prefix tree)</div>
+        <div class="topic"><span class="dot"></span>Segment tree</div>
+        <div class="topic"><span class="dot"></span>Fenwick tree (BIT)</div>
+      </div>
+      <div class="milestone">
+        <i class="ti ti-flag" aria-hidden="true"></i>
+        <div class="milestone-text"><strong>Milestone:</strong> Build a BST with insert/delete/search + implement Trie for autocomplete</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 6: Graphs -->
+  <div class="phase p6">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-badge">Stage 6</span>
+      <span class="phase-title">Graphs</span>
+      <span class="phase-sub">Traversal & shortest paths</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="section-label">Representation & traversal</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Adjacency list & matrix</div>
+        <div class="topic"><span class="dot"></span>BFS (breadth-first search)</div>
+        <div class="topic"><span class="dot"></span>DFS (depth-first search)</div>
+        <div class="topic"><span class="dot"></span>Topological sort</div>
+        <div class="topic"><span class="dot"></span>Cycle detection</div>
+        <div class="topic"><span class="dot"></span>Union-Find (disjoint set)</div>
+      </div>
+      <div class="section-label">Shortest path algorithms</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Dijkstra's algorithm</div>
+        <div class="topic"><span class="dot"></span>Bellman-Ford</div>
+        <div class="topic"><span class="dot"></span>Floyd-Warshall</div>
+        <div class="topic"><span class="dot"></span>A* search</div>
+      </div>
+      <div class="section-label">Minimum spanning tree</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Prim's algorithm</div>
+        <div class="topic"><span class="dot"></span>Kruskal's algorithm</div>
+      </div>
+      <div class="milestone">
+        <i class="ti ti-flag" aria-hidden="true"></i>
+        <div class="milestone-text"><strong>Milestone:</strong> Implement Dijkstra's from scratch + solve number-of-islands style BFS/DFS problems</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 7: Advanced patterns -->
+  <div class="phase p7">
+    <div class="phase-header" onclick="toggle(this)">
+      <span class="phase-badge">Stage 7</span>
+      <span class="phase-title">Advanced techniques</span>
+      <span class="phase-sub">Greedy, DP, backtracking</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="section-label">Recursion-based</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Backtracking</div>
+        <div class="topic"><span class="dot"></span>Divide & conquer</div>
+      </div>
+      <div class="section-label">Greedy</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Greedy algorithm pattern</div>
+        <div class="topic"><span class="dot"></span>Activity selection / interval scheduling</div>
+      </div>
+      <div class="section-label">Dynamic programming</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Memoization (top-down)</div>
+        <div class="topic"><span class="dot"></span>Tabulation (bottom-up)</div>
+        <div class="topic"><span class="dot"></span>1D DP (Fibonacci, climbing stairs)</div>
+        <div class="topic"><span class="dot"></span>2D DP (grid paths, edit distance)</div>
+        <div class="topic"><span class="dot"></span>Knapsack pattern</div>
+        <div class="topic"><span class="dot"></span>Longest common subsequence</div>
+        <div class="topic"><span class="dot"></span>DP on trees / graphs</div>
+      </div>
+      <div class="section-label">Bit manipulation</div>
+      <div class="topics">
+        <div class="topic"><span class="dot"></span>Bitwise operators</div>
+        <div class="topic"><span class="dot"></span>Bitmasking</div>
+      </div>
+      <div class="milestone">
+        <i class="ti ti-flag" aria-hidden="true"></i>
+        <div class="milestone-text"><strong>Milestone:</strong> Solve 0/1 knapsack, LCS, and one backtracking problem (N-Queens or subsets) unaided</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggle(header) {
+  const phase = header.parentElement;
+  const body = phase.querySelector('.phase-body');
+  const isOpen = body.classList.contains('visible');
+  body.classList.toggle('visible', !isOpen);
+  header.classList.toggle('open', !isOpen);
+}
+document.querySelectorAll('.phase-header').forEach(h => {
+  const body = h.parentElement.querySelector('.phase-body');
+  if (body.classList.contains('visible')) h.classList.add('open');
+});
+</script>
